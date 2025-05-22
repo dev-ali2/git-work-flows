@@ -3,18 +3,18 @@ import datetime
 import random
 
 def update_readme():
-    # Get current date
+   
     current_date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
-    # Read existing README
+ 
     try:
         with open('README.md', 'r', encoding='utf-8') as file:
             content = file.read()
     except FileNotFoundError:
-        content = "# My Automated Daily Coding Journey 🚀\n\nWelcome to my automated coding contribution repository!\n\n"
+        content = "# My Automated Daily Tech Journey 🚀\n\nWelcome to my automated tech contribution repository!\n\n"
     
-    # 200+ Daily coding facts
-    coding_facts = [
+ 
+    tech_facts = [
         "🌟 The first computer bug was an actual bug - a moth found in a Harvard computer in 1947",
         "🚀 Python is named after Monty Python's Flying Circus, not the snake",
         "💡 The term 'debugging' was coined by Admiral Grace Hopper",
@@ -246,37 +246,180 @@ def update_readme():
         "💻 Deleted code is debugged code",
         "🔧 If debugging is the process of removing bugs, then programming must be the process of putting them in",
         "🎨 Programming isn't about what you know; it's about what you can figure out",
-        "⭐ The most important property of a program is whether it accomplishes the intention of its user"
+        "⭐ The most important property of a program is whether it accomplishes the intention of its user",
+        "🚀 TCP/IP protocol was developed in the 1970s by Vint Cerf and Bob Kahn",
+        "💡 The first touchscreen was invented in 1965 by E.A. Johnson",
+        "🔥 UNIX operating system was created in 1969 at Bell Labs",
+        "⚡ The term 'bug' in software was popularized by Grace Hopper in 1947",
+        "🎯 The first computer game 'Spacewar!' was created in 1962 at MIT",
+        "🌈 The QWERTY keyboard layout was designed in 1868 for typewriters",
+        "🚀 The first computer programming course was taught in 1951",
+        "💻 RAM (Random Access Memory) was invented in 1968",
+        "🔧 The concept of hypertext was introduced by Ted Nelson in 1963",
+        "🎨 The first computer graphics card was released by IBM in 1981",
+        "⭐ The World Wide Web was invented by Tim Berners-Lee in 1989",
+        "🚀 The first domain name ever registered was symbolics.com in 1985",
+        "💡 FORTRAN was the first high-level programming language (1957)",
+        "🔥 The first computer with a hard disk drive was IBM 305 RAMAC in 1956",
+        "⚡ Ethernet networking technology was invented by Bob Metcalfe in 1973",
+        "🎯 The concept of virtual memory was introduced in the 1960s",
+        "🌈 The first computer with color display was the Apple II in 1977",
+        "🚀 LISP programming language was created by John McCarthy in 1958",
+        "💻 The first computer operating system was GM-NAA I/O in 1956",
+        "🔧 Packet switching technology was developed in the 1960s",
+        "🎨 The first laser printer was invented by Gary Starkweather in 1969",
+        "⭐ BASIC programming language was created in 1964 at Dartmouth College",
+        "🚀 The first computer virus in the wild was 'Brain' in 1986",
+        "💡 The concept of artificial intelligence was coined in 1956 at Dartmouth",
+        "🔥 The first computer with a GUI was the Xerox Star in 1981",
+        "⚡ COBOL programming language was developed by Grace Hopper's team in 1959",
+        "🎯 The first computer bulletin board system (BBS) was created in 1978",
+        "🌈 The IBM PC was launched in 1981 and standardized personal computing",
+        "🚀 The first computer worm was 'Morris Worm' released in 1988",
+        "💻 CD-ROM technology was developed by Sony and Philips in 1982",
+        "🔧 Object-oriented programming was pioneered by Alan Kay in the 1960s",
+        "🎨 The first computer with built-in networking was the Apple Lisa in 1983",
+        "⭐ Pascal programming language was created by Niklaus Wirth in 1970",
+        "🚀 The concept of client-server architecture emerged in the 1980s",
+        "💡 The first computer with a flat-panel display was the GRiD Compass in 1982",
+        "🔥 Smalltalk programming language introduced object-oriented concepts in 1972",
+        "⚡ The first computer with stereo sound was the Amiga 1000 in 1985",
+        "🎯 Relational database theory was proposed by Edgar F. Codd in 1970",
+        "🌈 The first computer with multitasking was the Xerox Alto in 1973",
+        "🚀 Ada programming language was named after Ada Lovelace and created in 1980",
+        "💻 The first computer with a built-in modem was the Apple III in 1980",
+        "🔧 The concept of machine learning was introduced by Arthur Samuel in 1959",
+        "🎨 The first portable computer was the Osborne 1 in 1981",
+        "⭐ Prolog programming language was created by Alain Colmerauer in 1972",
+        "🚀 The first computer with voice recognition was IBM Shoebox in 1962",
+        "💡 Expert systems were first developed in the 1960s at Stanford",
+        "🔥 The first computer with a trackball was the Telefunken computer in 1968",
+        "⚡ SQL programming language was developed by IBM in the 1970s",
+        "🎯 The concept of distributed computing emerged in the 1970s",
+        "🌈 The first laptop computer was the Epson HX-20 in 1981",
+        "🚀 C++ programming language was created by Bjarne Stroustrup in 1983",
+        "💻 The first computer with a hard disk was the IBM 350 in 1956",
+        "🔧 Neural networks were first proposed by McCulloch and Pitts in 1943",
+        "🎨 The first computer with vector graphics was the IBM 2250 in 1964",
+        "⭐ PostScript page description language was created by Adobe in 1982",
+        "🚀 The concept of virtual reality was introduced by Ivan Sutherland in 1968",
+        "💡 The first computer with parallel processing was the ILLIAC IV in 1975",
+        "🔥 Objective-C programming language was created by Brad Cox in 1984",
+        "⚡ The first computer with speech synthesis was Bell Labs' VODER in 1939",
+        "🎯 Genetic algorithms were introduced by John Holland in the 1960s",
+        "🌈 The first computer with wireless communication was ALOHANET in 1971",
+        "🚀 Perl programming language was created by Larry Wall in 1987",
+        "💻 The concept of computer graphics was pioneered by Ivan Sutherland in 1963",
+        "🔧 Fuzzy logic was introduced by Lotfi Zadeh in 1965",
+        "🎨 The first computer with digital signal processing was developed in the 1960s",
+        "⭐ Tcl programming language was created by John Ousterhout in 1988",
+        "🚀 The first computer with real-time processing was Whirlwind I in 1951",
+        "💡 Expert system shells were developed in the 1970s",
+        "🔥 Eiffel programming language was created by Bertrand Meyer in 1985",
+        "⚡ The concept of computer simulation was introduced in the 1940s",
+        "🎯 Knowledge representation was formalized in the 1970s",
+        "🌈 The first computer with bitmap graphics was the Xerox Alto in 1973",
+        "🚀 Haskell programming language was created by a committee in 1990",
+        "💻 The concept of computer vision was introduced in the 1960s",
+        "🔧 Case-based reasoning was developed in the 1980s",
+        "🎨 The first computer with texture mapping was developed by Edwin Catmull in 1974",
+        "⭐ Python programming language was created by Guido van Rossum in 1991",
+        "🚀 The concept of natural language processing emerged in the 1950s",
+        "💡 Constraint programming was developed in the 1970s",
+        "🔥 Java programming language was created by James Gosling at Sun in 1995",
+        "⚡ The first computer with ray tracing was developed in the 1960s",
+        "🎯 Multi-agent systems were introduced in the 1980s",
+        "🌈 The first computer with anti-aliasing was developed in the 1970s",
+        "🚀 JavaScript was created by Brendan Eich at Netscape in 1995",
+        "💻 Computer-aided design (CAD) was introduced in the 1960s",
+        "🔧 Swarm intelligence was introduced in the 1990s",
+        "🎨 The first computer with 3D acceleration was released in the 1990s",
+        "⭐ PHP programming language was created by Rasmus Lerdorf in 1995",
+        "🚀 Virtual reality headsets were first developed in the 1960s",
+        "💡 Evolutionary computation was introduced in the 1960s",
+        "🔥 Ruby programming language was created by Yukihiro Matsumoto in 1995",
+        "⚡ Motion capture technology was developed in the 1970s",
+        "🎯 Artificial life was introduced by Christopher Langton in the 1980s",
+        "🌈 Computer animation was pioneered by John Whitney in the 1960s",
+        "🚀 C# programming language was created by Microsoft in 2000",
+        "💻 Augmented reality was first developed in the 1960s",
+        "🔧 Reinforcement learning was formalized in the 1980s",
+        "🎨 Digital image processing was developed in the 1960s",
+        "⭐ Go programming language was created by Google in 2009",
+        "🚀 Haptic technology was first developed in the 1970s",
+        "💡 Bayesian networks were introduced in the 1980s",
+        "🔥 Swift programming language was created by Apple in 2014",
+        "⚡ Computer music synthesis was developed in the 1950s",
+        "🎯 Hidden Markov models were applied to computing in the 1960s",
+        "🌈 Fractal geometry in computer graphics was popularized in the 1980s",
+        "🚀 Rust programming language was created by Mozilla in 2010",
+        "💻 Brain-computer interfaces were first developed in the 1970s",
+        "🔧 Support vector machines were introduced in the 1990s",
+        "🎨 Procedural generation in games was pioneered in the 1980s",
+        "⭐ Kotlin programming language was created by JetBrains in 2011",
+        "🚀 Quantum computing was first proposed by Richard Feynman in 1982",
+        "💡 Deep learning neural networks were revived in the 2000s",
+        "🔥 TypeScript was created by Microsoft in 2012",
+        "⚡ Holographic displays were first demonstrated in the 1960s",
+        "🎯 Ensemble methods in machine learning were developed in the 1990s",
+        "🌈 Real-time rendering techniques were developed in the 1980s",
+        "🚀 Dart programming language was created by Google in 2011",
+        "💻 Biometric authentication was first used in computing in the 1960s",
+        "🔧 Clustering algorithms were developed in the 1960s",
+        "🎨 Volumetric rendering was developed in the 1980s",
+        "⭐ The first smartphone was IBM Simon in 1994",
+        "🚀 GPS technology became available for civilian use in 1983",
+        "💡 The first social networking site was Six Degrees in 1997",
+        "🔥 Wi-Fi technology was developed in the 1990s",
+        "⚡ The first digital camera was created by Kodak in 1975",
+        "🎯 Bluetooth technology was developed in the 1990s",
+        "🌈 The first MP3 player was released in 1997",
+        "🚀 USB technology was introduced in 1996",
+        "💻 The first tablet computer was the GRiDPad in 1989",
+        "🔧 RFID technology was invented in 1948",
+        "🎨 The first e-reader was the Sony Data Discman in 1990",
+        "⭐ DVD technology was introduced in 1995",
+        "🚀 The first GPS satellite was launched in 1978",
+        "💡 The first digital watch was released in 1972",
+        "🔥 Flash memory was invented by Fujio Masuoka in 1980",
+        "⚡ The first CCD image sensor was invented in 1969",
+        "🎯 LCD displays were first developed in the 1960s",
+        "🌈 LED technology was invented in 1962",
+        "🚀 The first microprocessor was Intel 4004 in 1971",
+        "💻 The first RAM chip was invented in 1967",
+        "🔧 The integrated circuit was invented in 1958",
+        "🎨 The transistor was invented at Bell Labs in 1947",
+        "⭐ Fiber optic cables were first used for communication in 1966"
     ]
     
-    # Select a random coding fact
-    fact_of_day = random.choice(coding_facts)
+   
+    fact_of_day = random.choice(tech_facts)
     
-    # Update marker for our automation
+  
     automation_marker = "<!-- DAILY_UPDATE -->"
     new_section = f"""
 {automation_marker}
-## 📅 Daily Coding Update
+## 📅 Daily Tech Update
 **Last Updated:** {current_date} UTC
 
-**Today's Coding Fact:** {fact_of_day}
+**Today's Tech Fact:** {fact_of_day}
 
-**Contribution Streak:** This repository is automatically updated daily to maintain consistent coding habits! 🔥
+**Contribution Streak:** This repository is automatically updated daily with fascinating tech facts! 🔥
 
 **Stats:**
-- 📊 Daily automated commits
-- 🎯 Consistent contribution graph
+- 📊 {len(tech_facts)} total tech facts in database
+- 🎯 Consistent contribution graph maintenance
 - 🚀 Learning something new every day
-- 💡 Building coding discipline
+- 💡 Building tech knowledge systematically
 
 ---
 """
     
-    # Replace existing section or add new one
+   
     if automation_marker in content:
-        # Find and replace the daily update section
+      
         start_marker = content.find(automation_marker)
-        # Find the next section or end of file
+      
         end_marker = content.find("\n## ", start_marker + len(automation_marker))
         if end_marker == -1:
             end_marker = content.find("\n# ", start_marker + len(automation_marker))
@@ -285,15 +428,16 @@ def update_readme():
         
         content = content[:start_marker] + new_section + content[end_marker:]
     else:
-        # Add section at the beginning
+      
         content = new_section + content
     
-    # Write updated content
+  
     with open('README.md', 'w', encoding='utf-8') as file:
         file.write(content)
     
     print(f"✅ README updated successfully at {current_date}")
-    print(f"📚 Today's fact: {fact_of_day}")
+    print(f"📚 Today's tech fact: {fact_of_day}")
+    print(f"🎯 Total facts in database: {len(tech_facts)}")
 
 if __name__ == "__main__":
     update_readme()

@@ -1,46 +1,57 @@
 name: Daily Coding Contribution
 
-# When to run this workflow
+
 on:
   schedule:
-    # Runs daily at 10:00 UTC (adjust for your timezone)
+   
     - cron: '0 10 * * *'
-  workflow_dispatch: # Allows manual triggering from GitHub website
+  workflow_dispatch:
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
     
+    permissions:
+      contents: write  
+    
     steps:
-    # Step 1: Download the repository code
+  
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0  
     
-    # Step 2: Set up Python environment
+ 
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.9'
     
-    # Step 3: Run our update script
+    
     - name: Run daily update script
       run: python update_readme.py
     
-    # Step 4: Configure Git user (required for commits)
+   
     - name: Configure Git
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "Daily Coding Bot"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
     
-    # Step 5: Commit and push changes
+ 
+    - name: Check for changes
+      id: verify-changed-files
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "changed=true" >> $GITHUB_OUTPUT
+        else
+          echo "changed=false" >> $GITHUB_OUTPUT
+        fi
+    
+   
     - name: Commit and push changes
+      if: steps.verify-changed-files.outputs.changed == 'true'
       run: |
         git add README.md
-        if git diff --staged --quiet; then
-          echo "No changes to commit"
-        else
-          git commit -m "🤖 Daily coding fact update - $(date +'%Y-%m-%d')"
-          git push
-        fi
+        git commit -m "🤖 Daily coding fact update - $(date +'%Y-%m-%d %H:%M UTC')"
+        git push origin main

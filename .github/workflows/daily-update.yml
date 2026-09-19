@@ -1,44 +1,40 @@
 name: Daily Coding Contribution
 
-
 on:
   schedule:
-   
-    - cron: '0 10 * * *'
+    - cron: '0 10 * * *'  # 3:00 PM PKT
+    - cron: '0 14 * * *'  # 7:00 PM PKT
+    - cron: '0 18 * * *'  # 11:00 PM PKT
   workflow_dispatch:
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
-    
+
     permissions:
-      contents: write  
-    
+      contents: write
+
     steps:
-  
+
     - name: Checkout repository
       uses: actions/checkout@v5
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        fetch-depth: 0  
-    
- 
+        fetch-depth: 0
+
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.9'
-    
-    
+
     - name: Run daily update script
       run: python update_readme.py
-    
-   
+
     - name: Configure Git
       run: |
         git config --global user.email "inbox.meharali@gmail.com"
         git config --global user.name "Ali Raza"
-    
- 
+
     - name: Check for changes
       id: verify-changed-files
       run: |
@@ -47,8 +43,7 @@ jobs:
         else
           echo "changed=false" >> $GITHUB_OUTPUT
         fi
-    
-   
+
     - name: Commit and push changes
       if: steps.verify-changed-files.outputs.changed == 'true'
       run: |
